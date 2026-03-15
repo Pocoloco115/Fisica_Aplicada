@@ -11,7 +11,7 @@ Todos los proyectos de este repositorio están desarrollados utilizando:
 
 A continuación, se listan los proyectos desarrollados durante el curso:
 
-1. **Conversor de Prefijos del SI (Candela):** 
+1. **Conversor de Prefijos del SI:** 
    - Herramienta de consola para convertir magnitudes utilizando notación científica (desde *quecto* hasta *quetta*).
    - Generación de reportes automáticos en formato `.txt`.
 
