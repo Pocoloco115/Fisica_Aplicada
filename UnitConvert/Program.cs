@@ -33,60 +33,60 @@ public static class Program
 
     };
     static void Main(string[] args)
-{
-    string filePath = "output.txt";
-    bool keepRunning = true;
-
-    while (keepRunning) 
     {
-        Console.WriteLine("=== Unit Converter ===");
-        Console.WriteLine("Enter the value to convert:");
-        
-        if (!double.TryParse(Console.ReadLine(), out double value))
+        string filePath = "output.txt";
+        bool keepRunning = true;
+
+        while (keepRunning) 
         {
-            Console.WriteLine("Invalid number. Press any key to try again...");
-            Console.ReadKey();
-            Console.Clear();
-            continue;
-        }
-
-        Console.WriteLine("Enter the unit to convert from (e.g., Kilo, Mega, etc.):");
-        string fromUnit = Console.ReadLine();
-
-        Console.WriteLine("Enter the unit to convert to:");
-        string toUnit = Console.ReadLine();
-
-        try
-        {
-            double convertedValue = UnitConvert(fromUnit, toUnit, value);
-            string resultLine = $"{value} {fromUnit} is equal to {convertedValue} {toUnit}";
+            Console.WriteLine("=== Unit Converter ===");
+            Console.WriteLine("Enter the value to convert:");
             
-            Console.WriteLine("\nRESULT: " + resultLine);
-
-            File.AppendAllText(filePath, $"{DateTime.Now}: {resultLine}{Environment.NewLine}");
-            
-            Console.WriteLine("\nDo you want to perform another conversion? (y/n):");
-            string response = Console.ReadLine()?.ToLower();
-
-            if (response == "n" || response == "exit")
+            if (!double.TryParse(Console.ReadLine(), out double value))
             {
-                keepRunning = false;
-                Console.WriteLine("Closing program... Goodbye!");
+                Console.WriteLine("Invalid number. Press any key to try again...");
+                Console.ReadKey();
+                Console.Clear();
+                continue;
             }
-            else
+
+            Console.WriteLine("Enter the unit to convert from (e.g., Kilo, Mega, etc.):");
+            string fromUnit = Console.ReadLine();
+
+            Console.WriteLine("Enter the unit to convert to:");
+            string toUnit = Console.ReadLine();
+
+            try
             {
+                double convertedValue = UnitConvert(fromUnit, toUnit, value);
+                string resultLine = $"{value} {fromUnit} is equal to {convertedValue} {toUnit}";
+                
+                Console.WriteLine("\nRESULT: " + resultLine);
+
+                File.AppendAllText(filePath, $"{DateTime.Now}: {resultLine}{Environment.NewLine}");
+                
+                Console.WriteLine("\nDo you want to perform another conversion? (y/n):");
+                string response = Console.ReadLine()?.ToLower();
+
+                if (response == "n" || response == "exit")
+                {
+                    keepRunning = false;
+                    Console.WriteLine("Closing program... Goodbye!");
+                }
+                else
+                {
+                    Console.Clear();
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine("\nERROR: " + ex.Message);
+                Console.WriteLine("Press any key to try again...");
+                Console.ReadKey();
                 Console.Clear();
             }
         }
-        catch (ArgumentException ex)
-        {
-            Console.WriteLine("\nERROR: " + ex.Message);
-            Console.WriteLine("Press any key to try again...");
-            Console.ReadKey();
-            Console.Clear();
-        }
     }
-}
 
     static double UnitConvert(string fromUnit, string toUnit, double value)
     {
