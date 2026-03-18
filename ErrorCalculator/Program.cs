@@ -53,7 +53,6 @@ class Program
             return;
         }
 
-        // Show table in console
         Console.WriteLine($"\nExponential approximation for x = {x}  (n = {n} terms)");
         Console.WriteLine("───────────────────────────────────────────────────────────────");
         Console.WriteLine("| Term | Approximation | Absolute Error | Relative Error (%) |");
@@ -74,7 +73,6 @@ class Program
 
         Console.WriteLine("───────────────────────────────────────────────────────────────");
 
-        // Save full nice table to file
         SaveTableToFile(filePath, x, n);
 
         Console.WriteLine($"\nResults have been saved to: {filePath}");
@@ -88,7 +86,6 @@ class Program
         double trueValue = Math.Exp(x);
         var sb = new StringBuilder();
 
-        // Header block
         sb.AppendLine($"Exponential series approximation");
         sb.AppendLine($"x = {x,-20}   terms = {n,-6}   {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
         sb.AppendLine("───────────────────────────────────────────────────────────────");
@@ -110,18 +107,13 @@ class Program
         sb.AppendLine("───────────────────────────────────────────────────────────────");
         sb.AppendLine();
 
-        // Write to file (appends if file already exists)
         File.AppendAllText(filePath, sb.ToString());
     }
 
     static double ApproximateExponential(double x, int terms)
     {
-        // terms = 0 → 1
-        // terms = 1 → 1 + x
-        // terms = 2 → 1 + x + x²/2!
-        // etc.
         double sum = 1.0;
-        double term = 1.0;   // current power(x)/factorial term
+        double term = 1.0;   
 
         for (int k = 1; k <= terms; k++)
         {
