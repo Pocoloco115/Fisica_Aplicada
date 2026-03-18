@@ -1,0 +1,29 @@
+# --- Directorios de salida de compilación ---
+[Bb]in/
+[Ob]j/
+
+# --- Archivos de usuario y configuración de VS Code ---
+.vscode/
+*.user
+*.userosscache
+*.sln.docuser
+
+# --- Archivos temporales de .NET ---
+*.swp
+*.lock
+.DS_Store
+.net/
+
+# --- Archivos generados por el sistema ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Archivos de salida de tus programas (Opcional) ---
+# Si NO quieres subir los archivos .txt que genera tu programa:
+output.txt
+log_*.txt
+*.csv
+
+# --- Archivos de publicación ---
+publish/
