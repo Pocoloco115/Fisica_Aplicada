@@ -1,0 +1,13 @@
+Hacer un programa que calcule la fuerza neta causada 
+por n cargas puntuales sobre una carga cuya magnitud 
+y posición se conoce, también se conocen las magnitudes
+ y posiciones de cada una de las n cargas puntuales. 
+Carga puntual es una carga que no tiene dimensiones (tamaño), 
+se asume que es un punto.
+
+Hacer un programa que calcule la fuerza neta causada por 
+n cargas puntuales sobre una carga cuya magnitud y posición 
+se conoce, también se conocen las magnitudes y posiciones de 
+cada una de las n cargas puntuales. 
+Carga puntual es una carga que no tiene dimensiones (tamaño), 
+se asume que es un punto.
