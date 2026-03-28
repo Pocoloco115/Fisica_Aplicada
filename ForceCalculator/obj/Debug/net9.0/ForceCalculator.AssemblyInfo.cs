@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ForceCalculator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ba0fa70349722ac435aa0e9516195960a9f9cc2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+286b983b187646dbc409ff0c972f8a406a95335f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ForceCalculator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ForceCalculator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
