@@ -13,3 +13,4 @@ C:\Users\willy\OneDrive\Desktop\Fisica\ForceCalculator\obj\Debug\net9.0\refint\F
 C:\Users\willy\OneDrive\Desktop\Fisica\ForceCalculator\obj\Debug\net9.0\ForceCalculator.pdb
 C:\Users\willy\OneDrive\Desktop\Fisica\ForceCalculator\obj\Debug\net9.0\ForceCalculator.genruntimeconfig.cache
 C:\Users\willy\OneDrive\Desktop\Fisica\ForceCalculator\obj\Debug\net9.0\ref\ForceCalculator.dll
+C:\Users\willy\OneDrive\Desktop\Fisica\ForceCalculator\bin\Debug\net9.0\ConsoleConfig.dll

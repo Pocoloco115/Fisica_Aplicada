@@ -1,15 +1,18 @@
 ﻿using System;
-using System.IO;
-using System.Text;
 
 class Program
 {
     static void Main()
     {
-        Console.Clear();
+        Init();
         Menu.Start();
     }
+
+    private static void Init()
+    {
+        Console.Clear();
+        Console.Title = "Coulomb's Force Calculator";
+        Console.CursorVisible = false;
+        Console.ForegroundColor = ConsoleColor.Green;
+    }
 }
-
-
-

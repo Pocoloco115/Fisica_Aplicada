@@ -6,80 +6,134 @@ using System.Text;
 public static class Menu
 {
     private static string tittle = @"
-     ____             _                 _       _____                     ____      _            _       _             
-    / ___| ___  _   _| | ___  _ __ ___ | |__   |  ___|__  _ __ ___ ___   / ___|__ _| | ___ _   _| | __ _| |_ ___  _ __ 
-    | |   / _ \| | | | |/ _ \| '_ ` _ \| '_ \  | |_ / _ \| '__/ __/ _ \ | |   / _` | |/ __| | | | |/ _` | __/ _ \| '__|
-    | |__| (_) | |_| | | (_) | | | | | | |_) | |  _| (_) | | | (_|  __/ | |__| (_| | | (__| |_| | | (_| | || (_) | |   
-     \____\___/ \__,_|_|\___/|_| |_| |_|_.__/  |_|  \___/|_|  \___\___|  \____\__,_|_|\___|\__,_|_|\__,_|\__\___/|_|   
-                                                                                                                                                                                                                                            
-    ";
+  /$$$$$$            /$$                     /$$ /$$   /$$              
+ /$$__  $$          | $$                    | $$|__/  | $$              
+| $$  \__/  /$$$$$$ | $$  /$$$$$$$ /$$   /$$| $$ /$$ /$$$$$$    /$$$$$$ 
+| $$       |____  $$| $$ /$$_____/| $$  | $$| $$| $$|_  $$_/   /$$__  $$
+| $$        /$$$$$$$| $$| $$      | $$  | $$| $$| $$  | $$    | $$  \ $$
+| $$    $$ /$$__  $$| $$| $$      | $$  | $$| $$| $$  | $$ /$$| $$  | $$
+|  $$$$$$/|  $$$$$$$| $$|  $$$$$$$|  $$$$$$/| $$| $$  |  $$$$/|  $$$$$$/
+ \______/  \_______/|__/ \_______/ \______/ |__/|__/   \___/   \______/                                                                                                                                                                                                                                                                            
+";
 
     public static void Start()
     {
-        Console.ForegroundColor = ConsoleColor.Green;
         DisplayMenu();
     }
 
+    private static void WriteCenteredBlock(string text)
+    {
+        int width = Console.WindowWidth;
+        if (width <= 0)
+        {
+            Console.Write(text);
+            return;
+        }
+
+        string[] rawLines = text.Replace("\r", "").Split('\n');
+
+        int maxLen = 0;
+        for (int i = 0; i < rawLines.Length; i++)
+        {
+            int len = rawLines[i].TrimEnd().Length;
+            if (len > maxLen) maxLen = len;
+        }
+
+        foreach (string raw in rawLines)
+        {
+            string line = raw.TrimEnd();
+            int pad = Math.Max(0, (width - maxLen) / 2);
+            Console.WriteLine(new string(' ', pad) + line);
+        }
+    }
+
+    private static void WriteCenteredLine(string text)
+    {
+        int width = Console.WindowWidth;
+        if (width <= 0)
+        {
+            Console.WriteLine(text);
+            return;
+        }
+
+        text = text.TrimEnd();
+        int pad = Math.Max(0, (width - text.Length) / 2);
+        Console.WriteLine(new string(' ', pad) + text);
+    }
+
+    private static string ReadCenteredLine(string prompt)
+    {
+        string line = prompt.TrimEnd();
+        int width = Console.WindowWidth;
+        int pad = width > 0 ? Math.Max(0, (width - line.Length) / 2) : 0;
+
+        Console.Write(new string(' ', pad) + line);
+        return Console.ReadLine();
+    }
+
     public static void DisplayMenu()
-{
-    string[] options =
     {
-        "Calculate the force between charges",
-        "Exit"
-    };
-
-    int selected = 0;
-    ConsoleKey key;
-
-    do
-    {
-        Console.Clear();
-        Console.WriteLine(tittle);
-        Console.WriteLine("\nUse ↑ ↓ to navigate and Enter to select\n");
-
-        for (int i = 0; i < options.Length; i++)
+        string[] options =
         {
-            if (i == selected)
+            "Calculate the force between charges",
+            "Exit"
+        };
+
+        int selected = 0;
+        ConsoleKey key;
+
+        do
+        {
+            Console.Clear();
+            WriteCenteredBlock(tittle);
+            Console.WriteLine();
+            WriteCenteredLine("Use ↑ ↓ to navigate and Enter to select");
+            Console.WriteLine();
+
+            for (int i = 0; i < options.Length; i++)
             {
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.BackgroundColor = ConsoleColor.Green;
-                Console.WriteLine($"> {options[i]}");
-                Console.ResetColor();
-                Console.ForegroundColor = ConsoleColor.Green;
+                string line = (i == selected ? $"> {options[i]}" : $"  {options[i]}");
+
+                if (i == selected)
+                {
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    WriteCenteredLine(line);
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                }
+                else
+                {
+                    WriteCenteredLine(line);
+                }
             }
-            else
+
+            key = Console.ReadKey(true).Key;
+
+            if (key == ConsoleKey.UpArrow)
             {
-                Console.WriteLine($"  {options[i]}");
+                selected--;
+                if (selected < 0) selected = options.Length - 1;
             }
-        }
-
-        key = Console.ReadKey(true).Key;
-
-        if (key == ConsoleKey.UpArrow)
-        {
-            selected--;
-            if (selected < 0) selected = options.Length - 1;
-        }
-        else if (key == ConsoleKey.DownArrow)
-        {
-            selected++;
-            if (selected >= options.Length) selected = 0;
-        }
-        else if (key == ConsoleKey.Enter)
-        {
-            switch (selected)
+            else if (key == ConsoleKey.DownArrow)
             {
-                case 0:
-                    GetData();
-                    break;
-
-                case 1:
-                    return;
+                selected++;
+                if (selected >= options.Length) selected = 0;
             }
-        }
+            else if (key == ConsoleKey.Enter)
+            {
+                switch (selected)
+                {
+                    case 0:
+                        GetData();
+                        break;
+                    case 1:
+                        return;
+                }
+            }
 
-    } while (true);
-}
+        } while (true);
+    }
 
     private static void GetData()
     {
@@ -87,40 +141,32 @@ public static class Menu
         try
         {
             Console.Clear();
-            Console.WriteLine("--- INPUT DATA --- \n");
+            WriteCenteredLine("--- INPUT DATA ---");
+            Console.WriteLine();
 
-            Console.Write("Enter the main charge value: ");
-            double mainChargeValue = double.Parse(Console.ReadLine());
-            Console.Write("Enter the main charge sign (+ or -): ");
-            char mainChargeSign = char.Parse(Console.ReadLine());
-            Console.Write("Enter the main charge name: ");
-            char mainChargeName = char.Parse(Console.ReadLine());
-            Console.Write("Enter the main charge X position: ");
-            double mainChargeX = double.Parse(Console.ReadLine());
-            Console.Write("Enter the main charge Y position: ");
-            double mainChargeY = double.Parse(Console.ReadLine());
+            double mainChargeValue = double.Parse(ReadCenteredLine("Enter the main charge value: "));
+            char mainChargeSign = char.Parse(ReadCenteredLine("Enter the main charge sign (+ or -): "));
+            char mainChargeName = char.Parse(ReadCenteredLine("Enter the main charge name: "));
+            double mainChargeX = double.Parse(ReadCenteredLine("Enter the main charge X position: "));
+            double mainChargeY = double.Parse(ReadCenteredLine("Enter the main charge Y position: "));
 
             Vector2 mainChargePosition = new Vector2(mainChargeX, mainChargeY);
             Charge mainCharge = new Charge(mainChargeValue, mainChargePosition, mainChargeName, mainChargeSign);
 
-            Console.Write("\nEnter the number of other charges: ");
-            int numberOfCharges = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+            int numberOfCharges = int.Parse(ReadCenteredLine("Enter the number of other charges: "));
 
             CoulombCalcHandler handler = new CoulombCalcHandler(numberOfCharges, mainCharge);
 
             for (int i = 0; i < numberOfCharges; i++)
             {
-                Console.WriteLine($"\n--- Data for Charge {i + 1} ---");
-                Console.Write("Value: ");
-                double chargeValue = double.Parse(Console.ReadLine());
-                Console.Write("Sign (+ or -): ");
-                char chargeSign = char.Parse(Console.ReadLine());
-                Console.Write("Name: ");
-                char chargeName = char.Parse(Console.ReadLine());
-                Console.Write("X position: ");
-                double chargeX = double.Parse(Console.ReadLine());
-                Console.Write("Y position: ");
-                double chargeY = double.Parse(Console.ReadLine());
+                Console.WriteLine();
+                WriteCenteredLine($"--- Data for Charge {i + 1} ---");
+                double chargeValue = double.Parse(ReadCenteredLine("Value: "));
+                char chargeSign = char.Parse(ReadCenteredLine("Sign (+ or -): "));
+                char chargeName = char.Parse(ReadCenteredLine("Name: "));
+                double chargeX = double.Parse(ReadCenteredLine("X position: "));
+                double chargeY = double.Parse(ReadCenteredLine("Y position: "));
 
                 Vector2 chargePosition = new Vector2(chargeX, chargeY);
                 handler.AddCharge(new Charge(chargeValue, chargePosition, chargeName, chargeSign));
@@ -131,7 +177,8 @@ public static class Menu
         }
         catch (Exception)
         {
-            Console.WriteLine("\nInvalid data. Press any key to return to menu.");
+            Console.WriteLine();
+            WriteCenteredLine("Invalid data. Press any key to return to menu.");
             Console.ReadKey();
         }
         Console.CursorVisible = false;
@@ -143,13 +190,18 @@ public static class Menu
         StringBuilder sb = new StringBuilder();
 
         Console.Clear();
-        Console.WriteLine("CALCULATION RESULTS\n");
+        WriteCenteredLine("CALCULATION RESULTS");
+        Console.WriteLine();
 
         string header  = "┌─────────────────────────────────────────────────────────────────────────────┐";
         string divider = "├─────────────────────────────────────────────────────────────────────────────┤";
         string footer  = "└─────────────────────────────────────────────────────────────────────────────┘";
 
-        Action<string> print = (s) => { Console.WriteLine(s); sb.AppendLine(s); };
+        Action<string> print = (s) =>
+        {
+            WriteCenteredLine(s);
+            sb.AppendLine(s);
+        };
 
         print(header);
         print("│                           COULOMB FORCE ANALYSIS                            │");
@@ -165,10 +217,9 @@ public static class Menu
         }
         print(footer);
 
-        File.WriteAllText(filePath, sb.ToString());
-
-        Console.WriteLine($"\nResults have been saved to: {Path.GetFullPath(filePath)}");
-        Console.WriteLine("Press any key to return...");
+        Console.WriteLine();
+        WriteCenteredLine($"Results have been saved to: {Path.GetFullPath(filePath)}");
+        WriteCenteredLine("Press any key to return...");
         Console.ReadKey();
     }
 }
