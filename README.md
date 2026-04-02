@@ -30,10 +30,10 @@ A continuación, se listan los proyectos desarrollados durante el curso:
 
 3. **Calculadora de Fuerza – Ley de Coulomb**  _(con simulación en Unity)_  
    - Cálculo de la fuerza eléctrica entre dos o más cargas puntuales según la ley de Coulomb.
-   - Cálculo del vector fuerza entre 2 o más cargas puntuales.  
+   - Cálculo del vector fuerza entre dos o más cargas puntuales.  
    - Permite configurar signo, magnitud y distancia de las cargas.
    - Generación de reportes automáticos en formato `.txt`.  
-   - Incluye una simulación interactiva en Unity donde se visualizan las cargas, las fuerzas resultantes y el movimiento.
+   - Incluye una simulación interactiva en Unity donde se visualizan las cargas, su valor y su posición vectorial.
 
    <details>
    <summary>Ver preview</summary>
