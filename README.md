@@ -64,8 +64,6 @@ Algunos proyectos incluyen una build de Unity lista para usar, publicada en la s
    (por ejemplo, `Coulomb_law_simulation_build.zip`).
 4. Descomprimir el archivo descargado.
 5. Ejecutar el archivo principal de la build:
-   - En Windows: el `.exe` dentro de la carpeta descomprimida.
-   - En macOS/Linux: el ejecutable marcado para tu sistema.
-   - En WebGL: abrir el `index.html` en un servidor local o el hosting donde se publique.
+   - (Ejemplo) En Windows: el `.exe` dentro de la carpeta descomprimida.
 
 Si un proyecto indica que **incluye simulación en Unity**, su build estará siempre disponible en la sección **Releases**, identificada por el tag mencionado junto al proyecto en el índice.
