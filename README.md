@@ -54,8 +54,7 @@ A continuación, se listan los proyectos desarrollados durante el curso:
 dotnet run
 ```
 > Requisitos: Tener instalado el SDK de .NET (versión 9.0 o superior) para usar `dotnet run`.
-> Puedes descargarlo desde la página oficial de Microsoft:  
-> [Descargar .NET SDK](https://dotnet.microsoft.com/download)
+> Puedes descargarlo desde la página oficial de Microsoft: [Descargar .NET SDK](https://dotnet.microsoft.com/download)
 
 ---
 
