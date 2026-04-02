@@ -1,1 +1,4 @@
 15000 milli = 0.015 kilo
+2/4/2026 13:56:04: 10 coulomb is equal to 10000000 microcoulomb
+2/4/2026 13:56:31: 1 microcoulomb is equal to 1E-06 coulomb
+2/4/2026 14:41:00: 50 microCoulomb is equal to 4.9999999999999996E-05 Coulomb

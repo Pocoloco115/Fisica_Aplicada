@@ -30,7 +30,7 @@ namespace CoulombPhysics
                 double force = CoulombCalculator.CalculateForce(MainCharge, charge);
                 string direction = CoulombCalculator.GetForceDirection(MainCharge, charge);
                 MyVector2 forceVector = CoulombCalculator.GetForceVector(MainCharge, charge);
-                results.Add(new List<string> { $"Results between {MainCharge.Name} and {charge.Name}", 
+                results.Add(new List<string> { $"Results between {MainCharge.Name} ({MainCharge.Value} C) and {charge.Name} ({charge.Value} C)", 
                 $"Force: {force} N", $"Direction: {direction}", $"Force Vector: {forceVector}" });
             }
             return results;

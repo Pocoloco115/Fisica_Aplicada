@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using CoulombPhysics;
+using PhysicsUtils;
 public static class Menu
 {
     private static string tittle = @"
@@ -143,14 +144,24 @@ public static class Menu
             Console.Clear();
             WriteCenteredLine("--- MAIN CHARGE DATA ---");
             Console.WriteLine();
+
             char mainChargeName = char.Parse(ReadCenteredLine("Enter the main charge name (Char): "));
-            double mainChargeValue = double.Parse(ReadCenteredLine("Enter the main charge value: "));
+
+            double mainChargeRawValue = double.Parse(ReadCenteredLine(
+                "Enter the main charge numeric value: "));
+
+            string mainChargePrefix = ReadCenteredLine(
+                "Enter the unit prefix for the main charge (e.g., micro, milli, kilo) or leave empty for Coulombs: ");
+
+            double mainChargeValueInCoulombs =
+                SiPrefixConverter.ToBase(mainChargeRawValue, mainChargePrefix);
+
             char mainChargeSign = char.Parse(ReadCenteredLine("Enter the main charge sign (+ or -): "));
             double mainChargeX = double.Parse(ReadCenteredLine("Enter the main charge X position: "));
             double mainChargeY = double.Parse(ReadCenteredLine("Enter the main charge Y position: "));
 
             MyVector2 mainChargePosition = new MyVector2(mainChargeX, mainChargeY);
-            Charge mainCharge = new Charge(mainChargeValue, mainChargePosition, mainChargeName, mainChargeSign);
+            Charge mainCharge = new Charge(mainChargeValueInCoulombs, mainChargePosition, mainChargeName, mainChargeSign);
 
             Console.Clear();
             WriteCenteredLine("--- OTHER CHARGES DATA ---");
@@ -163,14 +174,23 @@ public static class Menu
             {
                 Console.WriteLine();
                 WriteCenteredLine($"--- Data for Charge {i + 1} ---");
-                double chargeValue = double.Parse(ReadCenteredLine("Value: "));
+
+                double chargeRawValue = double.Parse(ReadCenteredLine(
+                    "Value (numeric, WITHOUT prefix, e.g., 5 for 5 microC): "));
+
+                string chargePrefix = ReadCenteredLine(
+                    "Unit prefix (e.g., micro, milli, kilo) or leave empty for Coulombs: ");
+
+                double chargeValueInCoulombs =
+                    SiPrefixConverter.ToBase(chargeRawValue, chargePrefix);
+
                 char chargeSign = char.Parse(ReadCenteredLine("Sign (+ or -): "));
                 char chargeName = char.Parse(ReadCenteredLine("Name: "));
                 double chargeX = double.Parse(ReadCenteredLine("X position: "));
                 double chargeY = double.Parse(ReadCenteredLine("Y position: "));
 
                 MyVector2 chargePosition = new MyVector2(chargeX, chargeY);
-                handler.AddCharge(new Charge(chargeValue, chargePosition, chargeName, chargeSign));
+                handler.AddCharge(new Charge(chargeValueInCoulombs, chargePosition, chargeName, chargeSign));
             }
 
             List<List<string>> results = handler.CalculateForces();
@@ -184,7 +204,6 @@ public static class Menu
         }
         Console.CursorVisible = false;
     }
-
     private static void ShowAndSaveResults(List<List<string>> results)
     {
         string filePath = "output_results.txt";

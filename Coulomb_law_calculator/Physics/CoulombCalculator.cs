@@ -1,6 +1,6 @@
 namespace CoulombPhysics
 {
-    public class CoulombCalculator
+    public static class CoulombCalculator
     {
         public static double CalculateForce(Charge charge1, Charge charge2)
         {

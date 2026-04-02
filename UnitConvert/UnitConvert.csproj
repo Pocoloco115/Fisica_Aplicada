@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PhysicsUtils\PhysicsUtils.csproj" />
+  </ItemGroup>
+
 </Project>
