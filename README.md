@@ -6,7 +6,7 @@ Este repositorio centraliza todos los trabajos, laboratorios y herramientas desa
 <p align="center">
   <img src="https://img.shields.io/badge/Unity-2022.3+-000000?logo=unity&logoColor=white&style=for-the-badge" alt="Unity">
   <img src="https://img.shields.io/badge/Made%20with-C%23-239120?logo=c-sharp&logoColor=white&style=for-the-badge" alt="C#">
-  <img src="https://img.shields.io/badge/.NET-8.0+-512BD4?logo=.net&logoColor=white&style=for-the-badge" alt=".NET">
+  <img src="https://img.shields.io/badge/.NET-9.0+-512BD4?logo=.net&logoColor=white&style=for-the-badge" alt=".NET">
 </p>
 Todos los proyectos de este repositorio están desarrollados utilizando:
 
