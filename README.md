@@ -26,10 +26,13 @@ A continuación, se listan los proyectos desarrollados durante el curso:
    - Cálculo de aproximaciones de la función exponencial mediante series de potencia.  
    - Cómputo de error absoluto, relativo y porcentual frente al valor de referencia.  
    - Comparación de distintas órdenes de truncamiento y visualización del comportamiento del error.
+   - Generación de reportes automáticos en formato `.txt`.
 
 3. **Calculadora de Fuerza – Ley de Coulomb**  _(con simulación en Unity)_  
-   - Cálculo de la fuerza eléctrica entre dos o más cargas puntuales según la ley de Coulomb.  
-   - Permite configurar signo, magnitud y distancia de las cargas.  
+   - Cálculo de la fuerza eléctrica entre dos o más cargas puntuales según la ley de Coulomb.
+   - Cálculo del vector fuerza entre 2 o más cargas puntuales.  
+   - Permite configurar signo, magnitud y distancia de las cargas.
+   - Generación de reportes automáticos en formato `.txt`.  
    - Incluye una simulación interactiva en Unity donde se visualizan las cargas, las fuerzas resultantes y el movimiento.
 
    <details>
