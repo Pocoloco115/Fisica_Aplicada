@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Coulomb_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysicsUtils", "PhysicsUtils\PhysicsUtils.csproj", "{40CB4428-1453-448A-AC00-1CA4038EE949}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ohm_law_calculator", "Ohm_law_calculator\Ohm_law_calculator.csproj", "{B6CCAC6B-40F6-4AE1-A848-886CD0D9566A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,18 @@ Global
 		{40CB4428-1453-448A-AC00-1CA4038EE949}.Release|x64.Build.0 = Release|Any CPU
 		{40CB4428-1453-448A-AC00-1CA4038EE949}.Release|x86.ActiveCfg = Release|Any CPU
 		{40CB4428-1453-448A-AC00-1CA4038EE949}.Release|x86.Build.0 = Release|Any CPU
+		{B6CCAC6B-40F6-4AE1-A848-886CD0D9566A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6CCAC6B-40F6-4AE1-A848-886CD0D9566A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6CCAC6B-40F6-4AE1-A848-886CD0D9566A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B6CCAC6B-40F6-4AE1-A848-886CD0D9566A}.Debug|x64.Build.0 = Debug|Any CPU
+		{B6CCAC6B-40F6-4AE1-A848-886CD0D9566A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B6CCAC6B-40F6-4AE1-A848-886CD0D9566A}.Debug|x86.Build.0 = Debug|Any CPU
+		{B6CCAC6B-40F6-4AE1-A848-886CD0D9566A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6CCAC6B-40F6-4AE1-A848-886CD0D9566A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6CCAC6B-40F6-4AE1-A848-886CD0D9566A}.Release|x64.ActiveCfg = Release|Any CPU
+		{B6CCAC6B-40F6-4AE1-A848-886CD0D9566A}.Release|x64.Build.0 = Release|Any CPU
+		{B6CCAC6B-40F6-4AE1-A848-886CD0D9566A}.Release|x86.ActiveCfg = Release|Any CPU
+		{B6CCAC6B-40F6-4AE1-A848-886CD0D9566A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
